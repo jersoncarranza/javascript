@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script type='text/javascript'>
+        var numero2=0;
+        function sumar()
+            { 
+            numero2 = numero2+1;
+            addFields();
+            }
+
+        function restar()
+            {
+            if(numero2 > 0)
+            {   
+                numero2 = numero2-1;
+               addFields();
+            }
+            else{
+                alert("Negativo no puede ser");
+            }
+
+         }
+
+          function addFields(){
+            // Number of inputs to create
+            var number = numero2;
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("Texto " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "input" + i;
+                input.class = "class" + i;
+                container.appendChild(input);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Input text Dinamicamente</h2>
+    <div id="container"></div>
+    <br><br>
+
+    <input name="suma" type="button" onclick="sumar()" value="suma" />
+    <input name="suma" type="button" onclick="restar()" value="restar" />
+
+</body>
+</html>
